@@ -32,3 +32,44 @@
 
 #### オプション：好きなテキストエディタを使ってローカルでチュートリアルを進める方法
 
+> 最新の Node.js がインストールされていることを確かめる。
+
+環境を準備していく
+
+- Dockerfile
+
+```Dockerfile
+FROM node
+WORKDIR /usr/src/app
+```
+
+- docker-compose.yml
+  - とりあえず「tty: true」つけて起動しっぱにしとく
+  - 実行しそうなコマンドはコメントアウトで残しとく
+
+```yaml
+version: '3.9'
+
+services:
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./node:/usr/src/app:cached
+    # command: sh -c "cd my-app && npm start"
+    tty: true
+    ports:
+      - "3000:3000"
+```
+
+- 起動確認
+
+```shellscript
+❯ docker-compose up
+[+] Running 1/1
+ ⠿ Container react-tutorial-node-1  Created                                                           0.0s
+Attaching to react-tutorial-node-1
+react-tutorial-node-1  | Welcome to Node.js v16.11.1.
+react-tutorial-node-1  | Type ".help" for more information.
+```
