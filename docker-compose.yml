@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./node:/usr/src/app:cached
+    # command: sh -c "cd my-app && npm start"
+    tty: true
+    ports:
+      - "3000:3000"
