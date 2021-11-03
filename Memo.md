@@ -73,3 +73,23 @@ Attaching to react-tutorial-node-1
 react-tutorial-node-1  | Welcome to Node.js v16.11.1.
 react-tutorial-node-1  | Type ".help" for more information.
 ```
+
+- 大丈夫そうね
+
+- devcontainerのファイルも作っておく
+
+> Create React App のインストールガイドに従って新しいプロジェクトを作成する。
+
+- コンテナ内に入って以下のコマンドを打つ
+
+```shellscript
+root@08789b79df9e:/usr/src/app# npx create-react-app my-app
+```
+
+- yes
+
+```shellscript
+Need to install the following packages:
+  create-react-app
+Ok to proceed? (y) y
+```
