@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./node:/usr/src/app:cached
+      - .:/usr/src/app:cached
     # command: sh -c "cd my-app && npm start"
     tty: true
     ports:
