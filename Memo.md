@@ -93,3 +93,49 @@ Need to install the following packages:
   create-react-app
 Ok to proceed? (y) y
 ```
+
+> 新しく作ったプロジェクトの src/ 内にあるファイルをすべて削除する
+
+```shellsript
+root@a83ae593e0f0:/usr/src/app/my-app# cd src/
+root@a83ae593e0f0:/usr/src/app/my-app/src# rm -f *
+root@a83ae593e0f0:/usr/src/app/my-app/src# touch index.css
+root@a83ae593e0f0:/usr/src/app/my-app/src# touch index.js
+```
+
+> src/ フォルダ内に index.css という名前のファイルを作り、ここの CSS コードを記入する。
+
+> src/ フォルダ内に index.js という名前のファイルを作り、ここの JS コードを記入する。
+
+> src/ フォルダ内の index.js ファイルの先頭に以下の 3 行のコードを加える。
+
+> これでプロジェクトフォルダ内で npm start を実行し、ブラウザで http://localhost:3000 を開くと、空の三目並べの盤面が表示されるはずです。
+
+- なんかエラーが出たな。。
+
+```shellscript
+root@a83ae593e0f0:/usr/src/app/my-app# npm start
+
+> my-app@0.1.0 start
+> react-scripts start
+
+node:internal/modules/cjs/loader:488
+      throw e;
+      ^
+
+Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './lib/tokenize' is not defined by "exports" in /usr/src/app/my-app/node_modules/postcss-safe-parser/node_modules/postcss/package.json
+    at new NodeError (node:internal/errors:371:5)
+    at throwExportsNotFound (node:internal/modules/esm/resolve:416:9)
+    at packageExportsResolve (node:internal/modules/esm/resolve:669:3)
+    at resolveExports (node:internal/modules/cjs/loader:482:36)
+    at Function.Module._findPath (node:internal/modules/cjs/loader:522:31)
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:919:27)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:999:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (/usr/src/app/my-app/node_modules/postcss-safe-parser/lib/safe-parser.js:1:17) {
+  code: 'ERR_PACKAGE_PATH_NOT_EXPORTED'
+}
+
+Node.js v17.0.1
+```
